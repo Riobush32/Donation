@@ -17,4 +17,15 @@ class Donation extends Model
     protected $fillable = [
         'invoice', 'campaign_id', 'donatur_id', 'amount', 'pray', 'status', 'snap_token'
     ];
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class);
+    }
+
+    public function donatur()
+    {
+        return $this->belongsTo(Donatur::class);
+    }
+
 }

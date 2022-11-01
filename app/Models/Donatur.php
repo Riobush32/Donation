@@ -27,4 +27,9 @@ class Donatur extends Model
         'password',
         'remember_token',
     ];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }
