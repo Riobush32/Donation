@@ -42,4 +42,9 @@ class Campaign extends Model
             ->where('donations.status', 'success')
             ->groupBy('donations.campaign_id');
     }
+
+    public function getImageAttribute($image)
+    {
+        return asset('storage/campaigns/'.$image);
+    }
 }

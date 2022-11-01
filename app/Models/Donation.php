@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Donation extends Model
 {
@@ -26,6 +27,16 @@ class Donation extends Model
     public function donatur()
     {
         return $this->belongsTo(Donatur::class);
+    }
+
+    public function getCreatedAtAttribute($date)
+    {   
+        return Carbon::parse($date)->format('d-M-Y');
+    }
+
+    public function getUpdatedAtAttribute($date)
+    {   
+        return Carbon::parse($date)->format('d-M-Y');
     }
 
 }
