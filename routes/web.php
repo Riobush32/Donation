@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DonaturController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationController;
@@ -43,5 +45,11 @@ Route::prefix('admin')->group(function () {
         //route donation
         Route::get('/donation', [DonationController::class, 'index'])->name('admin.donation.index');
         Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.firter');
+
+        //route profile
+        Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');   
+
+        //route resource slider
+        Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
     });
 });
