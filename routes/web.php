@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -30,5 +31,8 @@ Route::prefix('admin')->group(function () {
         
         //route resource categories
         Route::resource('/category', CategoryController::class,['as' => 'admin']);
+
+        //route resource campaign
+        Route::resource('/campaign', CampaignController::class, ['as' => 'admin']);
     });
 });
